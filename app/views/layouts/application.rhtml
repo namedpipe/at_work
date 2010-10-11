@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title><%= ORGANIZATION %> at Work</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag :defaults %>
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="header">
+	<% if current_user %><p style="float: right; padding: 10px;">Logged in as <%= current_user.first_name %><br/><a href="/logout">Logout</a></p><% end %>
+        <h1><%= ORGANIZATION %> @ work</h1>
+        <div id="divider">&nbsp;</div>
+    </div>
+    <div id="innerwrapper">
+        <div id="contentcolumn">
+				<div id="errorExplanation"><%= flash[:notice] %></div>
+            <div id="content">
+                <%= @content_for_layout %>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

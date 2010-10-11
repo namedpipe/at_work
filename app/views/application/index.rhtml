@@ -1,0 +1,26 @@
+<%= periodically_call_remote(:url => 'refresh_everyone', :frequency => '60', :update => 'everyone') %>
+<%= periodically_call_remote(:url => 'refresh_timeline', :frequency => '60', :update => 'timeline') %>
+<div id="mainstory">
+<div id="update-fields">
+	<p><span class="status-updated-date">Your current status</span><br/>
+	<%= in_place_editor_field :user, 'current_status',{},{:size => 30, :save_text => "Update", :complete => "updatedStatus('#{form_authenticity_token}');"} %>
+	<br/><span class="note">Click above to edit</span></p>
+
+	<% form_remote_tag(:update => "everyone", :url => "/add_accomplishment", :complete => "updatedStatus('#{form_authenticity_token}'); $(add_accomplishment).value = '';" ) do %>
+		<p><span class="status-updated-date">Add an accomplishment</span><br/>
+	<%= text_field_tag 'add_accomplishment', '', :size => 40, :class => "new-accomplishment" %>
+	<%= submit_tag 'Update', :class => "btn" %>
+	</p>
+	<% end -%>
+</div>
+	<br/>
+	<h1>Recently</h1>
+	<div id="timeline">
+		<%= render :partial => "timeline" %>
+	</div>
+</div>
+
+<div id="everyone">
+<%= render :partial => "everyone" %>
+</div>
+<br clear="all" />
