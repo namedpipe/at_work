@@ -1,0 +1,42 @@
+=== Welcome to My Company @ Work -- a simple internal twitter-like clone
+
+This is a twitter-like clone for use with small work teams. Each user has the option to change their status or add an accomplishment. The main window pane contains a recent list of statuses and accomplishments. And the sidebar contains the most recent changes for each user.
+
+link:screenshot.png
+
+=== System Requirements
+
+* Ruby v1.8.7
+* Ruby on Rails v2.3.4
+* MySQL v4.1.1 or later
+
+=== Setting Things Up
+
+My Company @ Work supports MySQL and SQLite databases.
+
+Edit config/database.yml and specify database names and authentication
+details.
+
+   $ rake db:create
+
+   $ rake at_work:setup
+
+=== Running The App
+
+Now you should be able to launch the Rails server and point your web browser
+to http://localhost:3000
+
+   $ ruby script/server
+
+=== License
+
+Copyright (c) 2010 by Michael Gorski, released under the MIT license.
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the MIT license.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.
+
+See LICENSE file for more details.

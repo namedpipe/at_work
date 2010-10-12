@@ -1,10 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'login_controller'
 
-# Re-raise errors caught by the controller.
-class LoginController; def rescue_action(e) raise e end; end
-
-class LoginControllerTest < Test::Unit::TestCase
+class LoginControllerTest < ActionController::TestCase
   # Be sure to include AuthenticatedTestHelper in test/test_helper.rb instead
   # Then, you can remove it from this and the units test.
   include AuthenticatedTestHelper
@@ -18,13 +14,13 @@ class LoginControllerTest < Test::Unit::TestCase
   end
 
   def test_should_login_and_redirect
-    post :create, :login => 'quentin', :password => 'test'
+    post :create, :login => 'quentin@example.com', :password => 'test'
     assert session[:user_id]
     assert_response :redirect
   end
 
   def test_should_fail_login_and_not_redirect
-    post :create, :login => 'quentin', :password => 'bad password'
+    post :create, :login => 'quentin@example.com', :password => 'bad password'
     assert_nil session[:user_id]
     assert_response :success
   end
@@ -37,19 +33,19 @@ class LoginControllerTest < Test::Unit::TestCase
   end
 
   def test_should_remember_me
-    post :create, :login => 'quentin', :password => 'test', :remember_me => "1"
+    post :create, :login => 'quentin@example.com', :password => 'test', :remember_me => "1"
     assert_not_nil @response.cookies["auth_token"]
   end
 
   def test_should_not_remember_me
-    post :create, :login => 'quentin', :password => 'test', :remember_me => "0"
+    post :create, :login => 'quentin@example.com', :password => 'test', :remember_me => "0"
     assert_nil @response.cookies["auth_token"]
   end
   
   def test_should_delete_token_on_logout
     login_as :quentin
     get :destroy
-    assert_equal @response.cookies["auth_token"], []
+    assert_nil @response.cookies["auth_token"]
   end
 
   def test_should_login_with_cookie

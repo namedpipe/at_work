@@ -1,19 +1,13 @@
 quentin:
   id: 1
-  login: quentin
   email: quentin@example.com
-  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
-  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  salt: 418aed35b882ea7434774fce4022c2d62d9049bb
+  crypted_password: 27545b412427579c79960bd8ba48d0a999bda233 # test
   created_at: <%= 5.days.ago.to_s :db %>
-
-
 
 aaron:
   id: 2
-  login: aaron
   email: aaron@example.com
-  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
-  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  salt: 90af8b4400e941f12a2e9f6133a0935e63940a2b
+  crypted_password: 1e60287531b8c077247b736e50c6f4b1d46f3838 # test
   created_at: <%= 1.days.ago.to_s :db %>
-
-

@@ -38,5 +38,5 @@ production:
   encoding: utf8
   database: at_work_prod
   username: at_work_user
-  password: somepasswork
+  password: 
   socket: /tmp/mysql.sock
