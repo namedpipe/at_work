@@ -73,7 +73,7 @@ class UserTest < ActiveSupport::TestCase
 
 protected
   def create_user(options = {})
-    record = User.new({ :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
+    record = User.new({ :first_name => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
     record.save
     record
   end

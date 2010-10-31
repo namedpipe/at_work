@@ -1,6 +1,7 @@
 quentin:
   id: 1
   email: quentin@example.com
+  first_name: quentin
   salt: 418aed35b882ea7434774fce4022c2d62d9049bb
   crypted_password: 27545b412427579c79960bd8ba48d0a999bda233 # test
   created_at: <%= 5.days.ago.to_s :db %>
@@ -8,6 +9,7 @@ quentin:
 aaron:
   id: 2
   email: aaron@example.com
+  first_name: aaron
   salt: 90af8b4400e941f12a2e9f6133a0935e63940a2b
   crypted_password: 1e60287531b8c077247b736e50c6f4b1d46f3838 # test
   created_at: <%= 1.days.ago.to_s :db %>
