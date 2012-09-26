@@ -7,7 +7,7 @@ link:/namedpipe/at_work/raw/master/screenshot.png
 === System Requirements
 
 * Ruby v1.8.7
-* Ruby on Rails v2.3.4
+* Ruby on Rails v2.3.4 (Rails 3 version being developed on the rails3 branch)
 * MySQL v4.1.1 or later
 
 === Setting Things Up
