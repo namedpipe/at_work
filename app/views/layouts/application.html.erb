@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title><%= AtWork::ORGANIZATION %> at Work</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="wrapper">
+    <div id="header">
+		<% if current_user %><p style="float: right; padding: 10px;">Logged in as <%= current_user.first_name %><br/><a href="/logout">Logout</a></p><% end %>
+        <h1><%= AtWork::ORGANIZATION %> @ work</h1>
+        <div id="divider">&nbsp;</div>
+    </div>
+    <div id="innerwrapper">
+        <div id="contentcolumn">
+				<div id="errorExplanation"><%= flash[:notice] %></div>
+            <div id="content">
+                <%= yield %>
+            </div>
+        </div>
+    </div>
+	</div>
+</body>
+</html>

@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest("--#{salt}--#{password}--")
   end
 
+  def self.active_users
+    where("current_status is not null").order("first_name").all
+  end
+
   # Encrypts the password with the user salt
   def encrypt(password)
     self.class.encrypt(password, salt)
