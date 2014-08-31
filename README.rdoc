@@ -2,7 +2,7 @@
 
 This is a twitter-like clone for use with small work teams. Each user has the option to change their status or add an accomplishment. The main window pane contains a recent list of statuses and accomplishments. And the sidebar contains the most recent changes for each user.
 
-link:https://github.com/namedpipe/at_work/blob/master/screenshot.png
+{rdoc-image:https://github.com/namedpipe/at_work/blob/master/screenshot.png}
 
 === System Requirements
 
