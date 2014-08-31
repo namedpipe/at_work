@@ -1,0 +1,17 @@
+<%= form_for(@accomplishment) do |f| %>
+  <% if @accomplishment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@accomplishment.errors.count, "error") %> prohibited this accomplishment from being saved:</h2>
+
+      <ul>
+      <% @accomplishment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

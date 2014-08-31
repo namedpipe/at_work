@@ -153,6 +153,7 @@ ul#timeline-list li em{
 	line-height:35px;
 }
 
+.rest-in-place,
 .in_place_editor_field {
 	font-size: 1.7em;
 	line-height: 30px;
@@ -162,9 +163,12 @@ ul#timeline-list li em{
 	padding-left: 5px;
 	background-color: #fff;
 }
+.rest-in-place input[type="text"] ,
 .inplaceeditor-form input[type="text"] {
-	font-size: 1.7em;
+	font-weight: bold;
+	font-size: 1em;
 	line-height: 30px;
+	width: 500px;
 	background-color: #fff;
 }
 	
