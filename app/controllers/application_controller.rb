@@ -10,40 +10,31 @@ class ApplicationController < ActionController::Base
 	def index
 		@user = current_user
 		@user.current_status ||= "Update your current status and save"
-		@recent_activity = Accomplishment.find(:all, :conditions => ["created_at > ?", 9.days.ago], :order => "created_at DESC")
-		@users = User.find(:all, :conditions => "current_status is not null", :order => "first_name")
+		@recent_activity = Accomplishment.recent_accomplishments
+		@users = User.active_users
 	end
 
 	def refresh_everyone
-		@users = User.find(:all, :conditions => "current_status is not null", :order => "first_name")
+		@users = User.active_users
 		render :partial => "everyone"
 	end
 
 	def refresh_timeline
-		@recent_activity = Accomplishment.find(:all, :conditions => ["created_at > ?", 9.days.ago], :order => "created_at DESC")
+		@recent_activity = Accomplishment.recent_accomplishments
 		render :partial => "timeline"
-	end
-
-	def add_accomplishment
-		@user = current_user
-		@user.accomplishments.create(:accomplishment => params[:add_accomplishment])
-		@users = User.find(:all, :conditions => "current_status is not null", :order => "first_name")
-		@recent_activity = Accomplishment.find(:all, :conditions => ["created_at > ?", 9.days.ago], :order => "created_at DESC")
-	end
-	
-	def set_user_current_status
-		@user = current_user
-		@user.current_status = params[:value]
-		@user.save
-		@user.accomplishments.create(:accomplishment => "Changed Status: #{params[:value]}")
-		@users = User.find(:all, :conditions => "current_status is not null", :order => "first_name")
-		@recent_activity = Accomplishment.find(:all, :conditions => ["created_at > ?", 9.days.ago], :order => "created_at DESC")
-		render :text => @user.current_status
 	end
 	
 	def feed
-		@articles = Accomplishment.find(:all, :conditions => ["created_at > ?", 9.days.ago], :order => "created_at DESC")
+		@articles = Accomplishment.recent_accomplishments
 		render :template => "application/feed.rxml", :layout => false
+	end
+
+	def admin_required
+		if current_user && current_user.email == admin@company.com
+			true
+		else
+			redirect_to :action => "index", :controller => "application"
+		end
 	end
 
 	private

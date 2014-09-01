@@ -1,0 +1,7 @@
+#sidenav, #header, #content #breadcrumb {
+	display: none;
+}
+
+#contentcolumn {
+	float: left;
+}

@@ -1,0 +1,26 @@
+<div id="mainstory">
+<div id="update-fields">
+	<p><span class="status-updated-date">Your current status</span><br/>
+		<span id="current_status" class="rest-in-place" data-url="/users/<%=@user.id%>" data-object="user" data-attribute="current_status">
+			<%= @user.current_status %>
+		</span>
+	<br/><span class="note">Click above to edit</span></p>
+
+	<%= form_for(Accomplishment.new(:user => @user), :url => { :controller => "accomplishments", :user_id => @user.id, :action => "create" }, :remote => true) do |f| %>
+		<p><span class="status-updated-date">Add an accomplishment</span><br/>
+	<%= f.text_field :accomplishment, :size => 40, :class => "new-accomplishment" %>
+	<%= submit_tag 'Update', :class => "btn" %>
+	</p>
+	<% end -%>
+</div>
+	<br/>
+	<h1>Recently</h1>
+	<div id="timeline">
+		<%= render :partial => "timeline" %>
+	</div>
+</div>
+
+<div id="everyone">
+<%= render :partial => "everyone" %>
+</div>
+<br clear="all" />

@@ -10,7 +10,7 @@ namespace :at_work do
     if user.save
     	puts "  Username: #{user.email}"
     	puts "  Password: #{password}\n\n"
-			puts "Start up the server by typing script/server and then visit http://localhost:3000"
+			puts "Start up the server by typing bundle exec rails s and then visit http://localhost:3000"
 		end
 	end
 	
@@ -23,7 +23,7 @@ namespace :at_work do
 	    user.save
 			puts "New user #{email} created"
 		else
-			puts "Please supply environment variables of EMAIL and PASSWORD to setup a new user"
+			puts "Please supply environment variables of EMAIL, PASSWORD and FIRST_NAME to setup a new user"
 		end
 	end
 end

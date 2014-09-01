@@ -1,0 +1,21 @@
+<h1>Listing accomplishments</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @accomplishments.each do |accomplishment| %>
+  <tr>
+    <td><%= link_to 'Show', accomplishment %></td>
+    <td><%= link_to 'Edit', edit_accomplishment_path(accomplishment) %></td>
+    <td><%= link_to 'Destroy', accomplishment, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Accomplishment', new_accomplishment_path %>
