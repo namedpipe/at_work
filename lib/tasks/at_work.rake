@@ -6,7 +6,7 @@ namespace :at_work do
 
 		# Create initial user
 		password = Digest::SHA1.hexdigest("--#{Time.now.to_s}--")[0..6]
-    user = User.new({ :first_name => "Mike", :email => 'mike@company.com', :password => password, :password_confirmation => password})
+    user = User.new({ :first_name => "Admin", :email => 'admin@company.com', :password => password, :password_confirmation => password})
     if user.save
     	puts "  Username: #{user.email}"
     	puts "  Password: #{password}\n\n"
