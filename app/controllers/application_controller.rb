@@ -23,27 +23,18 @@ class ApplicationController < ActionController::Base
 		@recent_activity = Accomplishment.recent_accomplishments
 		render :partial => "timeline"
 	end
-
-	def add_accomplishment
-		@user = current_user
-		@user.accomplishments.create(:accomplishment => params[:add_accomplishment])
-		@users = User.active_users
-		@recent_activity = Accomplishment.recent_accomplishments
-	end
-	
-	def set_user_current_status
-		@user = current_user
-		@user.current_status = params[:value]
-		@user.save
-		@user.accomplishments.create(:accomplishment => "Changed Status: #{params[:value]}")
-		@users = User.active_users
-		@recent_activity = Accomplishment.recent_accomplishments
-		render :text => @user.current_status
-	end
 	
 	def feed
 		@articles = Accomplishment.recent_accomplishments
 		render :template => "application/feed.rxml", :layout => false
+	end
+
+	def admin_required
+		if current_user && current_user.email == admin@company.com
+			true
+		else
+			redirect_to :action => "index", :controller => "application"
+		end
 	end
 
 	private

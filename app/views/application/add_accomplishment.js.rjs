@@ -1,2 +1,0 @@
-page["everyone"].replace_html render(:partial => "everyone")
-page["timeline"].replace_html render(:partial => "timeline")

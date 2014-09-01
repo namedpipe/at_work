@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :login_required
+  before_filter :admin_required, :only => [:index, :show, :new, :edit, :create, :destroy]
   # GET /users
   # GET /users.json
   def index
@@ -64,7 +65,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.json { render :js => "users/update.js.erb" }
+        format.json { render :json => @user }
+        #format.js { render :status => :created }
+        #format.json { render :json => @accomplishment, :status => :created }
       else
         format.html { render :action => "edit" }
         format.json { render :json => @user.errors, :status => :unprocessable_entity }

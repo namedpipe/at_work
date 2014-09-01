@@ -65,6 +65,6 @@ AtWork::Application.routes.draw do
   match '/login' => 'login#new', :as => :login
   match '/logout' => 'login#destroy', :as => :logout
   match '/' => 'application#index'
-  match '/:action/:id' => 'application#index'
-  match '/:controller(/:action(/:id))'
+  match '/refresh_everyone' => 'application#refresh_everyone'
+  match '/refresh_timeline' => 'application#refresh_timeline'
 end

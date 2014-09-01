@@ -1,7 +1,7 @@
 <div id="mainstory">
 <div id="update-fields">
 	<p><span class="status-updated-date">Your current status</span><br/>
-		<span class="rest-in-place" data-url="/users/<%=@user.id%>" data-object="user" data-attribute="current_status">
+		<span id="current_status" class="rest-in-place" data-url="/users/<%=@user.id%>" data-object="user" data-attribute="current_status">
 			<%= @user.current_status %>
 		</span>
 	<br/><span class="note">Click above to edit</span></p>

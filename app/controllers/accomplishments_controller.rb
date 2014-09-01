@@ -1,5 +1,6 @@
 class AccomplishmentsController < ApplicationController
   before_filter :login_required
+  before_filter :admin_required, :only => [:index, :show, :new, :edit, :update, :destroy]
   # GET /accomplishments
   # GET /accomplishments.json
   def index
