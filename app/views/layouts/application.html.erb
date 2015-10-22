@@ -9,8 +9,14 @@
 <body>
   <div id="wrapper">
     <div id="header">
-    <% if current_user %><p style="float: right; padding: 10px;">Logged in as <%= current_user.first_name %><br/><a href="/logout">Logout</a></p><% end %>
-        <h1><%= AtWork::ORGANIZATION %> @ work</h1>
+    <% if current_user %><p style="float: right; padding: 10px;">Logged in as <%= current_user.first_name %><br/><a href="/logout">Logout</a>
+    <% if current_user.admin? %>
+    <br/>
+    <%= link_to "Admin", :controller => "users" %>
+    <% end %>
+    </p>
+    <% end %>
+        <h1><%= link_to AtWork::ORGANIZATION + "@ work", "/" %></h1>
         <div id="divider">&nbsp;</div>
     </div>
     <div id="innerwrapper">

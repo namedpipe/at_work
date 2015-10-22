@@ -1,5 +1,6 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
+  ADMIN_EMAIL = "admin@"
 	has_many :accomplishments
   # Virtual attribute for the unencrypted password
   attr_accessor :password
@@ -31,6 +32,10 @@ class User < ActiveRecord::Base
 
   def self.active_users
     where("current_status is not null").order("first_name").all
+  end
+
+  def admin?
+    email == AtWork::ADMIN_EMAIL
   end
 
   # Encrypts the password with the user salt

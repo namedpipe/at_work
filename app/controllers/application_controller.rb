@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def admin_required
-		if current_user && current_user.email == "admin@company.com"
+		if current_user && current_user.admin?
 			true
 		else
 			redirect_to :action => "index", :controller => "application"
