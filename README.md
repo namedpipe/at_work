@@ -1,16 +1,16 @@
-=== Welcome to My Company @ Work -- a simple internal twitter-like clone
+# Welcome to My Company @ Work -- a simple internal status update tool for workgroups
 
 This is a twitter-like clone for use with small work teams. Each user has the option to change their status or add an accomplishment. The main window pane contains a recent list of statuses and accomplishments. And the sidebar contains the most recent changes for each user.
 
-https://github.com/namedpipe/at_work/blob/master/screenshot.png
+![Screenshot of At Work](screenshot.png?raw=true)
 
-=== System Requirements
+# System Requirements
 
 * Ruby v1.8.7
 * Ruby on Rails v3.2.13
 * MySQL or SQLite
 
-=== Setting Things Up
+# Setting Things Up
 
 My Company @ Work supports MySQL and SQLite databases.
 
@@ -23,14 +23,14 @@ details.
 
    $ bundle exec rake at_work:setup
 
-=== Running The App
+# Running The App
 
 Now you should be able to launch the Rails server and point your web browser
 to http://localhost:3000
 
    $ bundle exec rails s
 
-=== License
+# License
 
 Copyright (c) 2010-2014 by Michael Gorski, released under the MIT license.
 
