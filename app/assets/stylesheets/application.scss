@@ -16,7 +16,7 @@ $brand-danger:          #d9534f !default;
 $label-primary-bg:         #337ab7 !default;
 
 $font-family-base:  'Raleway', sans-serif !default;
-$font-size-base:  16px;
+$font-size-base:  14px;
 $padding-base-vertical: 9px;
 
 //== Scaffolding
@@ -40,8 +40,8 @@ $navbar-height:                    60px;
 $navbar-border-radius:             0;
 $navbar-collapse-max-height:       340px;
 
-$navbar-default-color:             #B3E3DE;
-$navbar-default-bg:                #B3E3DE;
+$navbar-default-color:             #D0D893;
+$navbar-default-bg:                #D0D893;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%);
 
 
@@ -57,11 +57,15 @@ ul#timeline-list li {
   
 }
 
+.status-updated-date {
+  color: #bbb;
+  font-size: .8em;
+}
+
 ul#timeline-list li em{
   color: #aaa;
 }
 .date-header {
-  width: 200px;
   padding: 2px;
   margin-left: -20px;
   background-color: #D0D893;
@@ -71,8 +75,8 @@ ul#timeline-list li em{
 
 .rest-in-place,
 .in_place_editor_field {
-  font-size: 1.7em;
-  line-height: 30px;
+  font-size: 2.2em;
+  line-height: 36px;
   font-weight: bold;
   margin-bottom: .4em;
   padding-right: 5px;
@@ -82,10 +86,10 @@ ul#timeline-list li em{
 .rest-in-place input[type="text"] ,
 .inplaceeditor-form input[type="text"] {
   font-weight: bold;
-  font-size: 1em;
-  line-height: 30px;
-  width: 500px;
+  font-size: 1.1em;
+  line-height: 36px;
   background-color: #fff;
+  width: 700px;
 }
 
 
@@ -113,14 +117,10 @@ ul#timeline-list li em{
 
 #everyone {
   margin-top: 10px;
-  margin-right: 50px;
   padding: 0px 5px 0px 5px;
-  float: right;
-  width: 25%;
   border: 1px solid #ccc;
 }
 
-/* --------------------------- FORMS --------------------------- */
 #content form div {
   font-size:1.1em;
   line-height: .6em;
@@ -133,7 +133,6 @@ ul#timeline-list li em{
 #everyone h2 {
   margin: 0.6em 0 0;
   height: 19px;
-  width: 59;
 }
 
 
