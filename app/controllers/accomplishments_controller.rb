@@ -1,14 +1,14 @@
 class AccomplishmentsController < ApplicationController
   before_filter :login_required
-  before_filter :admin_required, :only => [:index, :show, :new, :edit, :update, :destroy]
+  before_filter :admin_required, only: [:index, :show, :new, :edit, :update, :destroy]
   # GET /accomplishments
   # GET /accomplishments.json
   def index
-    @accomplishments = Accomplishment.where("user_id = :user_id", {:user_id => params[:user_id]})
+    @accomplishments = Accomplishment.where("user_id = :user_id", user_id: params[:user_id])
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @accomplishments }
+      format.json { render json: @accomplishments }
     end
   end
 
@@ -19,7 +19,7 @@ class AccomplishmentsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @accomplishment }
+      format.json { render json: @accomplishment }
     end
   end
 
@@ -30,7 +30,7 @@ class AccomplishmentsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render :json => @accomplishment }
+      format.json { render json: @accomplishment }
     end
   end
 
@@ -46,19 +46,19 @@ class AccomplishmentsController < ApplicationController
     @accomplishment.user = current_user
 
     @user = current_user
-    @user.accomplishments.create(:accomplishment => params[:add_accomplishment])
+    @user.accomplishments.create(accomplishment: params[:add_accomplishment])
     @users = User.active_users
     @recent_activity = Accomplishment.recent_accomplishments
 
     respond_to do |format|
       if @accomplishment.save
         @recent_activity = Accomplishment.recent_accomplishments
-        format.html { redirect_to user_accomplishment_url(current_user, @accomplishment), :notice => 'Accomplishment was successfully created.' }
-        format.js { render :status => :created }
-        format.json { render :json => @accomplishment, :status => :created }
+        format.html { redirect_to user_accomplishment_url(current_user, @accomplishment), notice: 'Accomplishment was successfully created.' }
+        format.js { render status: :created }
+        format.json { render json: @accomplishment, status: :created }
       else
-        format.html { render :action => "new" }
-        format.json { render :json => @accomplishment.errors, :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.json { render json: @accomplishment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -70,11 +70,11 @@ class AccomplishmentsController < ApplicationController
 
     respond_to do |format|
       if @accomplishment.update_attributes(params[:accomplishment])
-        format.html { redirect_to @accomplishment, :notice => 'Accomplishment was successfully updated.' }
+        format.html { redirect_to @accomplishment, notice: 'Accomplishment was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render :action => "edit" }
-        format.json { render :json => @accomplishment.errors, :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.json { render json: @accomplishment.errors, status: :unprocessable_entity }
       end
     end
   end

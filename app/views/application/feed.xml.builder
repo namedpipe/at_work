@@ -12,8 +12,8 @@ xml.rss :version => "2.0" do
         xml.title article.user.first_name + ": " + article.accomplishment
         xml.description article.user.first_name + ": " + article.accomplishment
         xml.pubDate article.created_at.to_s(:rfc822)
-		    xml.link "http://#{request.host}/#{article.id}"
-		    xml.guid "http://#{request.host}/#{article.id}"
+        xml.link "http://#{request.host}/#{article.id}"
+        xml.guid "http://#{request.host}/#{article.id}"
       end
     end
   end

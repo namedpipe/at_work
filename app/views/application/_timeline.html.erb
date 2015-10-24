@@ -1,16 +1,16 @@
 <% current_date = "" %>
 <% @recent_activity.each do |accomplishment| %>
-	<% if accomplishment.created_at.strftime("%Y%m%d") != current_date %>
-		<% if current_date != "" %></ul><% end %>
-		<% current_date = accomplishment.created_at.strftime("%Y%m%d") %>
-		<span class="date-header"><%= time_ago_in_words accomplishment.created_at %></span>
-		<ul id="timeline-list">
-	<% end %>
-			<li>
-				<% if accomplishment.accomplishment =~ /Changed Status/ %>
-					<span title="Status changed" style="background-color:#E97D1C">&nbsp;&nbsp;</span>&nbsp;<%= accomplishment.accomplishment.gsub(/Changed Status: /,'') %>
-				<% else -%>
-				<%= accomplishment.accomplishment %>
-					<% end %> - <em><%= accomplishment.user.first_name %> at <%= accomplishment.created_at.strftime("%H:%M") %></em></li>
+  <% if accomplishment.created_at.strftime("%Y%m%d") != current_date %>
+    <% if current_date != "" %></ul><% end %>
+    <% current_date = accomplishment.created_at.strftime("%Y%m%d") %>
+    <span class="date-header"><%= time_ago_in_words accomplishment.created_at %></span>
+    <ul id="timeline-list">
+  <% end %>
+      <li>
+        <% if accomplishment.accomplishment =~ /Changed Status/ %>
+          <span title="Status changed" style="background-color:#E97D1C">&nbsp;&nbsp;</span>&nbsp;<%= accomplishment.accomplishment.gsub(/Changed Status: /,'') %>
+        <% else -%>
+        <%= accomplishment.accomplishment %>
+          <% end %> - <em><%= accomplishment.user.first_name %> at <%= accomplishment.created_at.strftime("%H:%M") %></em></li>
 <% end %>
 </ul>

@@ -18,30 +18,30 @@ class AccomplishmentsControllerTest < ActionController::TestCase
 
   test "should create accomplishment" do
     assert_difference('Accomplishment.count') do
-      post :create, :accomplishment => {  }
+      post :create, accomplishment: {}
     end
 
     assert_redirected_to accomplishment_path(assigns(:accomplishment))
   end
 
   test "should show accomplishment" do
-    get :show, :id => @accomplishment
+    get :show, id: @accomplishment
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => @accomplishment
+    get :edit, id: @accomplishment
     assert_response :success
   end
 
   test "should update accomplishment" do
-    put :update, :id => @accomplishment, :accomplishment => {  }
+    put :update, id: @accomplishment, accomplishment: {}
     assert_redirected_to accomplishment_path(assigns(:accomplishment))
   end
 
   test "should destroy accomplishment" do
     assert_difference('Accomplishment.count', -1) do
-      delete :destroy, :id => @accomplishment
+      delete :destroy, id: @accomplishment
     end
 
     assert_redirected_to accomplishments_path

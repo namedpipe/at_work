@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :login_required
-  before_filter :admin_required, :only => [:index, :show, :new, :edit, :create, :destroy]
+  before_filter :admin_required, only: [:index, :show, :new, :edit, :create, :destroy]
   # GET /users
   # GET /users.json
   def index
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @users }
+      format.json { render json: @users }
     end
   end
 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @user }
+      format.json { render json: @user }
     end
   end
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render :json => @user }
+      format.json { render json: @user }
     end
   end
 
@@ -46,11 +46,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, :notice => 'User was successfully created.' }
-        format.json { render :json => @user, :status => :created, :location => @user }
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
       else
-        format.html { render :action => "new" }
-        format.json { render :json => @user.errors, :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,18 +59,16 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = current_user
-    @user.accomplishments.create(:accomplishment => "Changed Status: #{params[:user][:current_status]}")
+    @user.accomplishments.create(accomplishment: "Changed Status: #{params[:user][:current_status]}")
     @users = User.active_users
     @recent_activity = Accomplishment.recent_accomplishments
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.json { render :json => @user }
-        #format.js { render :status => :created }
-        #format.json { render :json => @accomplishment, :status => :created }
+        format.json { render json: @user }
       else
-        format.html { render :action => "edit" }
-        format.json { render :json => @user.errors, :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end

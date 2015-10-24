@@ -3,14 +3,14 @@
 <ul>
 <% @users.each do |user| %>
 <li><span class="orange-link"><%= user.first_name %></span> - <span class="status-updated-date">Updated <%= time_ago_in_words user.updated_at %> ago</span><br/>
-	<strong><%= user.current_status %></strong>
-	<ul class="accomplishments">
-	<% user.accomplishments.find(:all, :limit => 6, :order => "created_at DESC").each do |accomplishment| %>
-	<% next if ((accomplishment.accomplishment =~ /Changed Status/) && (accomplishment.accomplishment.gsub(/Changed Status: /,'') == user.current_status)) %>
-	<li class="accomplished"><% if accomplishment.accomplishment =~ /Changed Status/ %><span title="Status changed" style="background-color:#E97D1C">&nbsp;&nbsp;</span>&nbsp;<%= accomplishment.accomplishment.gsub(/Changed Status: /,'') %><% else %><%= accomplishment.accomplishment %><% end %></li>
-	<% end %>
-	</ul>
-	</li>
+  <strong><%= user.current_status %></strong>
+  <ul class="accomplishments">
+  <% user.accomplishments.find(:all, :limit => 6, :order => "created_at DESC").each do |accomplishment| %>
+  <% next if ((accomplishment.accomplishment =~ /Changed Status/) && (accomplishment.accomplishment.gsub(/Changed Status: /,'') == user.current_status)) %>
+  <li class="accomplished"><% if accomplishment.accomplishment =~ /Changed Status/ %><span title="Status changed" style="background-color:#E97D1C">&nbsp;&nbsp;</span>&nbsp;<%= accomplishment.accomplishment.gsub(/Changed Status: /,'') %><% else %><%= accomplishment.accomplishment %><% end %></li>
+  <% end %>
+  </ul>
+  </li>
 <% end %>
 </ul>
 </p>

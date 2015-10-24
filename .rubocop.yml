@@ -1,0 +1,28 @@
+
+# We are ok with longer lines here
+Metrics/LineLength:
+  Max: 200
+
+# Using double quotes is ok
+StringLiterals:
+  Enabled: false
+
+# We don't like the extra spaces inside braces
+Style/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+# This is a small app, we don't need to document all modules
+Style/Documentation:
+  Enabled: false
+
+Style/ExtraSpacing:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/MethodLength:
+  Max: 30
+
+Style/NumericLiterals:
+  Enabled: false

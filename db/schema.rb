@@ -11,27 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101012183807) do
-
-  create_table "accomplishments", :force => true do |t|
-    t.text     "accomplishment"
-    t.integer  "user_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+ActiveRecord::Schema.define(version: 20101012183807) do
+  create_table "accomplishments", force: true do |t|
+    t.text "accomplishment"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "email",                     :limit => 100
-    t.string   "first_name",                :limit => 100
-    t.string   "last_name",                 :limit => 100
-    t.string   "permanent_login"
-    t.string   "crypted_password",          :limit => 50
-    t.text     "current_status"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
-    t.string   "remember_token"
+  create_table "users", force: true do |t|
+    t.string "email", limit: 100
+    t.string "first_name", limit: 100
+    t.string "last_name", limit: 100
+    t.string "permanent_login"
+    t.string "crypted_password", limit: 50
+    t.text "current_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "remember_token"
     t.datetime "remember_token_expires_at"
-    t.string   "salt"
+    t.string "salt"
   end
-
 end
