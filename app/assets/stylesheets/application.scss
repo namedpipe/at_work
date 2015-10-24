@@ -1,0 +1,139 @@
+@import "bootstrap-sprockets";
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700);
+
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-primary:         darken(#777, 6.5%) !default; // #337ab7
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+$label-primary-bg:         #337ab7 !default;
+
+$font-family-base:  'Raleway', sans-serif !default;
+$font-size-base:  14px;
+$padding-base-vertical: 9px;
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg:               #ffffff !default;
+//** Global text color on `<body>`.
+$text-color:            $gray-dark !default;
+
+//** Global textual link color.
+$link-color:            $brand-primary !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%) !default;
+//** Link hover decoration.
+$link-hover-decoration: underline !default;
+
+// Basics of a navbar
+$navbar-height:                    60px;
+$navbar-border-radius:             0;
+$navbar-collapse-max-height:       340px;
+
+$navbar-default-color:             #D0D893;
+$navbar-default-bg:                #D0D893;
+$navbar-default-border:            darken($navbar-default-bg, 6.5%);
+
+
+@import "bootstrap";
+
+#update-fields {
+  background-color: #867A78;
+  padding: 10px;
+  margin-left: -20px;
+}
+ul#timeline-list li {
+  margin-bottom: .2em;
+  
+}
+
+.status-updated-date {
+  color: #bbb;
+  font-size: .8em;
+}
+
+ul#timeline-list li em{
+  color: #aaa;
+}
+.date-header {
+  padding: 2px;
+  margin-left: -20px;
+  background-color: #D0D893;
+  font-size: 1.3em;
+  line-height:35px;
+}
+
+.rest-in-place,
+.in_place_editor_field {
+  font-size: 2.2em;
+  line-height: 36px;
+  font-weight: bold;
+  margin-bottom: .4em;
+  padding-right: 5px;
+  padding-left: 5px;
+  background-color: #fff;
+}
+.rest-in-place input[type="text"] ,
+.inplaceeditor-form input[type="text"] {
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 36px;
+  background-color: #fff;
+  width: 700px;
+}
+
+
+#content li {
+  font-size: 1.2em;
+  line-height: 1.4em;
+  margin-bottom: 1.0em;
+}
+#everyone ul {
+  list-style-type: none;
+  list-style-image: none; /* turns off default list bullet */
+}
+
+#everyone ul.accomplishments li {
+  list-style-type: square;
+  list-style-position: inside;
+  margin-bottom: .2em;
+  padding-left: .5em;
+}
+
+#everyone li.accomplished {
+  font-size: .8em;
+  margin-bottom: .1em;
+}
+
+#everyone {
+  margin-top: 10px;
+  padding: 0px 5px 0px 5px;
+  border: 1px solid #ccc;
+}
+
+#content form div {
+  font-size:1.1em;
+  line-height: .6em;
+  margin-bottom: 1.6em;
+}
+.new-accomplishment {
+  font-size: 1.2em;
+}
+
+#everyone h2 {
+  margin: 0.6em 0 0;
+  height: 19px;
+}
+
+
+
